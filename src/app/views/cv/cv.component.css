@@ -1,0 +1,15 @@
+.mincenter {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containermin {
+    max-width: 750px;
+    width: auto;
+    margin: 1rem 1rem;
+    padding: 1rem 2rem;
+    box-shadow: #0000009a 0px 1px 5px 0px;
+    background-color: #ffffff;
+}

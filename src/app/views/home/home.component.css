@@ -1,0 +1,10 @@
+.specialicon {
+    color: #000000a9;
+   
+}
+.specialicon:hover {
+    color: #000000e3;
+}
+img {
+    max-width: 500px;
+}

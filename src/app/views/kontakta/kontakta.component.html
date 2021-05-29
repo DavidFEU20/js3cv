@@ -1,0 +1,79 @@
+<div class="mincenter">
+    <div class="containermin">
+
+        <p class="text-center py-2">Lämna gärna ett meddelande</p>
+        <form class=" row" #regForm="ngForm" (ngSubmit)="onSubmit(regForm)">
+            
+            <div class="col-lg-8 col-sm-12 mb-4">
+                <label class="form-label" for="name">Namn</label>
+                <input 
+                type="text"
+                id="name"  
+                class="form-control"
+                #name="ngModel"
+                ngModel
+                name="name"
+                required
+                minlength="2" />
+                
+                <div class="text-danger" *ngIf="!name.valid && name.touched">
+                    <small *ngIf="name.errors?.required">Du måste fylla i ett namn</small>
+                    <small *ngIf="name.errors?.minlength">Ditt namn är nog längre än en bokstav</small>
+                </div>
+            </div>
+            
+            <div class="col-8 mb-4">
+                <label class="form-label" for="email">Email</label>
+                <input 
+                type="email"
+                id="email"
+                class="form-control"
+                #email="ngModel"
+                ngModel
+                name="email"
+                required
+                pattern="\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" />
+                <div class="text-danger" *ngIf="!email.valid && email.touched">
+                    <small *ngIf="email.errors?.required">Du måste fylla i en e-post adress</small>
+                    <small *ngIf="email.errors?.pattern">Det måste vara en giltig e-post</small>
+                </div>
+                
+            </div>
+            
+            <div class="col-8 mb-4">
+                <label class="form-label" for="subject">Ämne</label>
+                <input 
+                type="text" 
+                id="subject" 
+                class="form-control"
+                #subject="ngModel"
+                ngModel
+                name="subject"
+                required />
+                <div class="text-danger" *ngIf="!subject.valid && subject.touched">
+                    <small>Du måste fylla i ett ämne</small>
+                </div>
+            </div>
+            
+            <div class=" mb-4">
+                <label class="form-label" for="message">Meddelande</label>
+                <textarea 
+                class="form-control" 
+                id="message" 
+                rows="4"
+                #message="ngModel"
+                ngModel
+                name="message"
+                required
+                minlength="3"
+                ></textarea>
+                <div class="text-danger" *ngIf="!message.valid && message.touched">
+                    <small *ngIf="message.errors?.required">Du måste fylla i ett meddelande</small>
+                    <small *ngIf="message.errors?.minlength">Du får åtminnstonde säga hej</small>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary mb-4 col-6" [disabled]="!regForm.valid">Skicka</button>
+        </form>
+    </div>
+    </div>
